@@ -87,7 +87,19 @@ export const About: React.FC<AboutProps> = ({ onContactClick }) => {
 
                 <div className="flex items-center justify-between">
                   <span className="text-zinc-500 flex items-center gap-1.5">
-                    <Laptop className="w-3.5 h-3.5 text-zinc-400" /> Availability
+                    <Laptop className="w-3.5 h-3.5 text-zinc-400" /> Daily Rig
+                  </span>
+                  <a
+                    href="#gadgets"
+                    className="text-indigo-400 hover:text-indigo-300 font-medium transition-colors"
+                  >
+                    ASUS TUF A16 & Nord 4
+                  </a>
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <span className="text-zinc-500 flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block" /> Status
                   </span>
                   <span className="text-emerald-400 font-medium">Accepting New Projects</span>
                 </div>

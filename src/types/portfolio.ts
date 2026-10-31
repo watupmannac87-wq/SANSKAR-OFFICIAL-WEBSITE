@@ -32,3 +32,13 @@ export interface ValueProp {
   description: string;
   icon: string;
 }
+
+export interface GadgetItem {
+  id: string;
+  name: string;
+  category: string;
+  role: string;
+  specs: string[];
+  description: string;
+  badge?: string;
+}

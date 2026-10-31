@@ -116,6 +116,8 @@ export default function App() {
       {activeDemoProject && (
         <InteractiveLiveDemo
           project={activeDemoProject}
+          allProjects={projects}
+          onSelectProject={(p) => setActiveDemoProject(p)}
           onClose={() => setActiveDemoProject(null)}
           onUpdateDemoUrl={handleUpdateDemoUrl}
         />

@@ -219,3 +219,43 @@ export const PROCESS_STEPS: ProcessStep[] = [
     deliverables: ['Final quality & speed inspection', 'Domain & hosting configuration help', 'Handover & post-launch support'],
   },
 ];
+
+export const GADGETS_DATA: {
+  workstationImage: string;
+  items: import('../types/portfolio').GadgetItem[];
+} = {
+  workstationImage: '/assets/aistudio/Neon_TUF_Gaming_Creator_Desk_c43f61f8.png',
+  items: [
+    {
+      id: 'asus-tuf-a16',
+      name: 'ASUS TUF Gaming A16',
+      category: 'Primary Workstation',
+      role: 'Frontend Engineering, UI/UX Prototyping & Builds',
+      badge: 'Main Machine',
+      specs: [
+        '16-inch 16:10 immersive display for expansive code view',
+        'High-refresh rate panel for silky-smooth 60–120fps animation testing',
+        'Multi-core AMD processing power for instant Vite & build pipelines',
+        'Dedicated thermal cooling for sustained heavy development sessions',
+      ],
+      description:
+        'My primary driver for building modern websites. Handles complex responsive UI design, multi-tab local dev servers, and graphics-heavy browser workloads effortlessly.',
+    },
+    {
+      id: 'oneplus-nord-4',
+      name: 'OnePlus Nord 4',
+      category: 'Mobile Testing Lab',
+      role: 'Real-Device Responsiveness & Touch Optimization',
+      badge: 'Daily & Mobile Testbed',
+      specs: [
+        'Sleek all-metal unibody with premium build quality',
+        '1.5K 120Hz Ultra AMOLED display for checking typography crispness',
+        'Snapdragon 7+ Gen 3 platform for testing real-world client speed',
+        'Aqua Touch display technology for testing responsive finger navigation',
+      ],
+      description:
+        'Every website I craft is physically tested on this OnePlus Nord 4 to guarantee that hamburger menus, tap targets, mobile forms, and WhatsApp ordering work flawlessly on real smartphones.',
+    },
+  ],
+};
+

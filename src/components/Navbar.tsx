@@ -21,7 +21,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
     { label: 'Work', href: '#work' },
     { label: 'Services', href: '#services' },
     { label: 'Process', href: '#process' },
-    { label: 'Why Me', href: '#why-me' },
+    { label: 'Gadgets', href: '#gadgets' },
     { label: 'About', href: '#about' },
   ];
 

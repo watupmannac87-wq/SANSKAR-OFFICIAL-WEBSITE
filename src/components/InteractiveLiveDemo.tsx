@@ -22,12 +22,16 @@ import { Project } from '../types/portfolio';
 
 interface InteractiveLiveDemoProps {
   project: Project;
+  allProjects?: Project[];
+  onSelectProject?: (project: Project) => void;
   onClose: () => void;
   onUpdateDemoUrl?: (newUrl: string) => void;
 }
 
 export const InteractiveLiveDemo: React.FC<InteractiveLiveDemoProps> = ({
   project,
+  allProjects = [],
+  onSelectProject,
   onClose,
   onUpdateDemoUrl,
 }) => {
@@ -39,6 +43,11 @@ export const InteractiveLiveDemo: React.FC<InteractiveLiveDemoProps> = ({
   const [reservationDate, setReservationDate] = useState('');
   const [reservationGuests, setReservationGuests] = useState('2');
   const [bookingConfirmed, setBookingConfirmed] = useState(false);
+
+  // Update tempUrl when project changes
+  React.useEffect(() => {
+    setTempUrl(project.demoUrl);
+  }, [project.demoUrl]);
 
   const handleSaveUrl = (e: React.FormEvent) => {
     e.preventDefault();
@@ -64,18 +73,37 @@ export const InteractiveLiveDemo: React.FC<InteractiveLiveDemoProps> = ({
     >
       <div className="relative w-full max-w-6xl h-[92vh] flex flex-col bg-[#0d0e17] border border-zinc-800 rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
         {/* Top Control Bar */}
-        <div className="flex items-center justify-between px-4 py-3 border-b border-zinc-800 bg-[#090A10] shrink-0">
+        <div className="flex items-center justify-between px-4 py-3 border-b border-zinc-800 bg-[#090A10] shrink-0 gap-3">
           <div className="flex items-center gap-3 min-w-0">
-            <div className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+            <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 shrink-0" />
             <div className="min-w-0">
-              <span className="text-xs uppercase tracking-wider text-indigo-400 font-medium block">
-                Interactive Website Demo
+              <span className="text-[10px] uppercase tracking-wider text-indigo-400 font-medium block">
+                Interactive Concept Preview
               </span>
               <h3 className="text-sm font-semibold text-white truncate font-display">
                 {project.name}
               </h3>
             </div>
           </div>
+
+          {/* Project Switcher inside modal (if multiple projects exist) */}
+          {allProjects.length > 1 && onSelectProject && (
+            <div className="hidden lg:flex items-center bg-zinc-900 border border-zinc-800 rounded-lg p-0.5 text-xs">
+              {allProjects.map((p) => (
+                <button
+                  key={p.id}
+                  onClick={() => onSelectProject(p)}
+                  className={`px-3 py-1 rounded-md transition-colors ${
+                    p.id === project.id
+                      ? 'bg-zinc-800 text-white font-medium shadow-sm'
+                      : 'text-zinc-400 hover:text-zinc-200'
+                  }`}
+                >
+                  {p.name.includes('BIRYANI') ? 'Aryan Biryani' : 'Denim Salon'}
+                </button>
+              ))}
+            </div>
+          )}
 
           {/* Viewport Mode Switcher */}
           <div className="hidden sm:flex items-center bg-zinc-900/90 border border-zinc-800 rounded-lg p-1">
